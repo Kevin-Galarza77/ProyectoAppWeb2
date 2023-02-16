@@ -1,7 +1,8 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\Usuarios\Controllers\ApiUsuarioController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::resource('/register', ApiUsuarioController::class);
+
+
 
 Route::middleware(['auth:sanctum'])->group(function () {
     // Ruta para el cierre de sesión
